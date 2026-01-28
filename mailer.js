@@ -17,58 +17,181 @@ async function sendMotivation() {
   <html lang="fr">
   <head>
       <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Lettre de Motivation - Louaked Wayl</title>
       <style>
-          * { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
-          body { margin: 0; padding: 0; background-color: #f9f9f9; color: #333333; }
-          .container { max-width: 600px; margin: 30px auto; background-color: #ffffff; border: 1px solid #dbdbdb; border-radius: 5px; overflow: hidden; }
-          .header { padding: 20px; text-align: center; }
-          .header img { height: 50px; }
-          .content { padding: 20px 30px; line-height: 1.6; }
-          .content h1 { font-size: 22px; margin-bottom: 15px; color: #0056b3; }
-          .content p { font-size: 16px; margin-bottom: 15px; }
-          .links a { color: #0056b3; text-decoration: none; }
-          .footer { padding: 15px 30px; background-color: #fafafa; font-size: 12px; color: #8e8e8e; text-align: center; }
+          * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box;
+          }
+          body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+          }
+          .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background-color: #ffffff; 
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+          }
+          .header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 40px 30px;
+            text-align: center;
+            color: white;
+          }
+          .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 5px;
+          }
+          .header p {
+            font-size: 16px;
+            opacity: 0.95;
+          }
+          .content { 
+            padding: 40px 30px;
+            line-height: 1.8;
+            color: #333333;
+          }
+          .content h2 {
+            font-size: 20px;
+            color: #667eea;
+            margin-bottom: 20px;
+          }
+          .content p { 
+            font-size: 16px; 
+            margin-bottom: 16px;
+            color: #555555;
+          }
+          .content strong {
+            color: #333333;
+          }
+          .signature {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+          }
+          .footer { 
+            background-color: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+          }
+          .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+          }
+          .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #333333;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+          }
+          .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          }
+          .social-link img {
+            width: 20px;
+            height: 20px;
+          }
+          .copyright {
+            font-size: 12px;
+            color: #999999;
+            margin-top: 15px;
+          }
+          @media only screen and (max-width: 600px) {
+            .social-links {
+              flex-direction: column;
+              gap: 10px;
+            }
+            .social-link {
+              justify-content: center;
+            }
+          }
       </style>
   </head>
   <body>
       <div class="container">
           <div class="header">
-              <img src="https://raw.githubusercontent.com/louakedwayl/Camagru/refs/heads/main/assets/images/logo.png" alt="Logo">
+              <h1>Louaked Wayl</h1>
+              <p>Développeur Full-Stack | Étudiant à l'École 42</p>
           </div>
+          
           <div class="content">
-              <h1>Bonjour Waro,</h1>
-              <p>Actuellement étudiant à l’École 42, je souhaite mettre mes compétences en <strong>TypeScript, React et NodeJS</strong> au service de Waro pour contribuer à votre mission de réduction de l’impact de la mode.</p>
-              <p>J’ai déjà développé plusieurs projets full-stack, comme <strong>PokedexNodeJs</strong> et <strong>Camagru</strong>, qui m’ont permis de renforcer mes compétences en architecture, API et interfaces modernes.</p>
-              <p>Autonome, curieux et motivé, je suis prêt à m’impliquer pleinement dans le développement de votre plateforme et à collaborer avec votre équipe pour résoudre des défis techniques concrets.</p>
-              <p>Contribuer à une startup engagée pour l’environnement serait pour moi une réelle opportunité d’allier passion et impact positif.</p>
-              <p class="links">
-                  GitHub : <a href="https://github.com/louakedwayl">https://github.com/louakedwayl</a><br>
-                  LinkedIn : <a href="https://www.linkedin.com/in/louakedwayl">https://www.linkedin.com/in/louakedwayl</a><br>
-                  Root-Me : <a href="https://www.root-me.org/louakedwayl">https://www.root-me.org/louakedwayl</a>
-              </p>
-              <p>Je serais ravi d’échanger avec vous pour vous présenter plus en détail mes expériences et ma motivation.</p>
-              <p>Cordialement,<br><strong>Louaked Wayl</strong></p>
+              <h2>Bonjour,</h2>
+              
+              <p>Actuellement étudiant à l'<strong>École 42</strong>, je souhaite mettre mes compétences en <strong>TypeScript, React et Node.js</strong> au service de votre entreprise pour contribuer à vos projets innovants.</p>
+              
+              <p>J'ai développé plusieurs projets full-stack, notamment <strong>PokedexNodeJs</strong> et <strong>Camagru</strong>, qui m'ont permis de renforcer mes compétences en architecture logicielle, développement d'API REST et création d'interfaces utilisateur modernes.</p>
+              
+              <p>Mes compétences techniques incluent :</p>
+              <p>• <strong>Frontend :</strong> React, TypeScript, HTML5, CSS3, Tailwind CSS<br>
+              • <strong>Backend :</strong> Node.js, Express, API RESTful<br>
+              • <strong>Base de données :</strong> PostgreSQL, MySQL, MongoDB<br>
+              • <strong>Outils :</strong> Git, Docker, Linux</p>
+              
+              <p>Autonome, curieux et motivé, je suis prêt à m'impliquer pleinement dans le développement de vos solutions et à collaborer avec votre équipe pour relever des défis techniques stimulants.</p>
+              
+              <p>Je serais ravi d'échanger avec vous pour vous présenter plus en détail mes expériences et ma motivation.</p>
+              
+              <div class="signature">
+                  <p>Cordialement,<br><strong>Louaked Wayl</strong></p>
+              </div>
           </div>
+          
           <div class="footer">
-              © 2026 Louaked Wayl. Tous droits réservés.
+              <div class="social-links">
+                  <a href="https://github.com/louakedwayl" class="social-link" target="_blank">
+                      <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
+                      <span>GitHub</span>
+                  </a>
+                  <a href="https://www.linkedin.com/in/louakedwayl" class="social-link" target="_blank">
+                      <img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="LinkedIn">
+                      <span>LinkedIn</span>
+                  </a>
+                  <a href="https://www.root-me.org/louakedwayl" class="social-link" target="_blank">
+                      <img src="https://www.root-me.org/IMG/logo_forum.png" alt="Root-Me" style="border-radius: 3px;">
+                      <span>Root-Me</span>
+                  </a>
+              </div>
+              <div class="copyright">
+                  © 2026 Louaked Wayl. Tous droits réservés.
+              </div>
           </div>
       </div>
   </body>
   </html>
   `;
 
-  // 3️⃣ Envoi de l'email
+  // Envoi de l'email
   let info = await transporter.sendMail({
-    from: '"Louaked Wayl" <louakedwayl@gmail.com>', // expéditeur
-    to: "louakedwayl@protonmail.com",                   // destinataire
-    subject: "Candidature Stage Développeur Full-Stack", // objet
-    html: htmlContent,                            // contenu HTML
+    from: `"${process.env.SENDER_NAME}" <${process.env.EMAIL_USER}>`,
+    to: process.env.RECIPIENT_EMAIL,
+    subject: process.env.EMAIL_SUBJECT || "Candidature Stage Développeur Full-Stack",
+    html: htmlContent,
   });
 
-  console.log("Message envoyé : %s", info.messageId);
+  console.log("✅ Message envoyé avec succès !");
+  console.log("📧 ID du message : %s", info.messageId);
 }
 
 // Exécute l'envoi
-sendMotivation().catch(console.error);
-
+sendMotivation().catch((error) => {
+  console.error("❌ Erreur lors de l'envoi :", error);
+});
