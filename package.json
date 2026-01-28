@@ -1,0 +1,23 @@
+{
+  "name": "mailer.js",
+  "version": "1.0.0",
+  "description": "Template pour envoyer des emails de motivation professionnels avec Node.js",
+  "main": "mailer.js",
+  "scripts": {
+    "start": "node mailer.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "motivation",
+    "template",
+    "nodemailer",
+    "job-application"
+  ],
+  "author": "Louaked Wayl",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "nodemailer": "^6.9.0"
+  }
+}
