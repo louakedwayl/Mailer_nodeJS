@@ -1,4 +1,4 @@
-# Template Email 
+# Mailer_nodeJS 
 
 Un template Node.js pour envoyer des emails HTML de motivation de manière professionnelle et sécurisée.
 
