@@ -1,9 +1,7 @@
-// Installer les dépendances : npm install nodemailer dotenv
 require('dotenv').config();
 const nodemailer = require("nodemailer");
 
 async function sendMotivation() {
-  // Configuration du transporteur avec les variables d'environnement
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -20,135 +18,65 @@ async function sendMotivation() {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Lettre de Motivation - Louaked Wayl</title>
       <style>
-          * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box;
-          }
-          body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
-          }
-          .container { 
-            max-width: 600px; 
-            margin: 0 auto; 
-            background-color: #ffffff; 
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-          }
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #fafafa; padding: 20px; }
+          .container { max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; border: 1px solid #dbdbdb; overflow: hidden; }
+          
+          /* Header sans bordure colorée */
           .header { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 40px 30px;
-            text-align: center;
-            color: white;
+              background: #ffffff; 
+              padding: 40px 20px 20px 20px;
+              text-align: center; 
+              border-bottom: 1px solid #efefef; 
           }
-          .header h1 {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 5px;
+          .profile-pic {
+              width: 90px;
+              height: 90px;
+              border-radius: 50%;
+              object-fit: cover;
+              display: block;
+              margin: 0 auto 15px;
+              border: 1px solid #dbdbdb; /* Petite bordure grise discrète */
           }
-          .header p {
-            font-size: 16px;
-            opacity: 0.95;
-          }
-          .content { 
-            padding: 40px 30px;
-            line-height: 1.8;
-            color: #333333;
-          }
-          .content h2 {
-            font-size: 20px;
-            color: #667eea;
-            margin-bottom: 20px;
-          }
-          .content p { 
-            font-size: 16px; 
-            margin-bottom: 16px;
-            color: #555555;
-          }
-          .content strong {
-            color: #333333;
-          }
-          .signature {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-          }
-          .footer { 
-            background-color: #f8f9fa;
-            padding: 30px;
-            text-align: center;
-            border-top: 1px solid #e0e0e0;
-          }
-          .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 20px;
-          }
-          .social-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 16px;
-            background-color: #ffffff;
-            border: 1px solid #e0e0e0;
-            border-radius: 6px;
-            text-decoration: none;
-            color: #333333;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-          }
-          .social-link:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-          }
-          .social-link img {
-            width: 20px;
-            height: 20px;
-          }
-          .copyright {
-            font-size: 12px;
-            color: #999999;
-            margin-top: 15px;
-          }
-          @media only screen and (max-width: 600px) {
-            .social-links {
-              flex-direction: column;
-              gap: 10px;
-            }
-            .social-link {
-              justify-content: center;
-            }
-          }
+          .header h1 { font-size: 22px; color: #262626; font-weight: 600; margin-bottom: 4px; }
+          .header p { font-size: 14px; color: #8e8e8e; font-weight: 400; }
+
+          /* Corps du mail */
+          .content { padding: 40px 35px; line-height: 1.7; color: #262626; }
+          .content h2 { font-size: 18px; color: #262626; margin-bottom: 20px; }
+          .content p { font-size: 15px; margin-bottom: 18px; }
+          .content strong { color: #00376b; font-weight: 600; }
+          
+          .signature { margin-top: 40px; padding-top: 25px; border-top: 1px solid #efefef; }
+          
+          /* Footer */
+          .footer { background-color: #ffffff; padding: 40px 30px; text-align: center; border-top: 1px solid #efefef; }
+          .social-links { display: table; width: 100%; border-collapse: separate; border-spacing: 15px 0; margin-bottom: 20px; }
+          .social-item { display: table-cell; width: 33%; text-align: center; vertical-align: middle; }
+          .social-link { text-decoration: none; color: #8e8e8e; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; }
+          .social-link img { display: block; margin: 0 auto 8px auto; width: 24px; height: 24px; opacity: 0.8; }
+          .copyright { font-size: 11px; color: #8e8e8e; margin-top: 25px; text-transform: uppercase; letter-spacing: 1px; }
       </style>
   </head>
   <body>
       <div class="container">
           <div class="header">
-              <h1>Louaked Wayl</h1>
-              <p>Développeur Full-Stack | Étudiant à l'École 42</p>
+              <img src="cid:profile_pic" class="profile-pic" alt="Louaked Wayl">
+              <h1>Wayl</h1>
+              <p>Développeur Full-Stack | Étudiant École 42</p>
           </div>
           
           <div class="content">
               <h2>Bonjour,</h2>
-              
-              <p>Actuellement étudiant à l'<strong>École 42</strong>, je souhaite mettre mes compétences en <strong>TypeScript, React et Node.js</strong> au service de votre entreprise pour contribuer à vos projets innovants.</p>
-              
-              <p>J'ai développé plusieurs projets full-stack, notamment <strong>PokedexNodeJs</strong> et <strong>Camagru</strong>, qui m'ont permis de renforcer mes compétences en architecture logicielle, développement d'API REST et création d'interfaces utilisateur modernes.</p>
-              
+              <p>Actuellement étudiant à l'<strong>École 42</strong>, je souhaite mettre mes compétences en <strong>TypeScript, React et Node.js</strong> au service de votre entreprise.</p>
+              <p>J'ai développé plusieurs projets full-stack, notamment <strong>PokedexNodeJs</strong> et <strong>Camagru</strong>, qui m'ont permis de renforcer mes compétences en architecture logicielle.</p>
               <p>Mes compétences techniques incluent :</p>
-              <p>• <strong>Frontend :</strong> React, TypeScript, HTML5, CSS3, Tailwind CSS<br>
-              • <strong>Backend :</strong> Node.js, Express, API RESTful<br>
-              • <strong>Base de données :</strong> PostgreSQL, MySQL, MongoDB<br>
-              • <strong>Outils :</strong> Git, Docker, Linux</p>
-              
-              <p>Autonome, curieux et motivé, je suis prêt à m'impliquer pleinement dans le développement de vos solutions et à collaborer avec votre équipe pour relever des défis techniques stimulants.</p>
-              
-              <p>Je serais ravi d'échanger avec vous pour vous présenter plus en détail mes expériences et ma motivation.</p>
+              <p style="background: #fafafa; padding: 15px; border-radius: 8px; border: 1px solid #efefef;">
+                • <strong>Frontend :</strong> React, TypeScript, Tailwind CSS<br>
+                • <strong>Backend :</strong> Node.js, Express, API RESTful<br>
+                • <strong>Outils :</strong> Git, Docker, Linux
+              </p>
+              <p style="margin-top:20px;">Je serais ravi d'échanger avec vous pour vous présenter ma motivation.</p>
               
               <div class="signature">
                   <p>Cordialement,<br><strong>Louaked Wayl</strong></p>
@@ -157,21 +85,27 @@ async function sendMotivation() {
           
           <div class="footer">
               <div class="social-links">
-                  <a href="https://github.com/louakedwayl" class="social-link" target="_blank">
-                      <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
-                      <span>GitHub</span>
-                  </a>
-                  <a href="https://www.linkedin.com/in/louakedwayl" class="social-link" target="_blank">
-                      <img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="LinkedIn">
-                      <span>LinkedIn</span>
-                  </a>
-                  <a href="https://www.root-me.org/louakedwayl" class="social-link" target="_blank">
-                      <img src="https://www.root-me.org/IMG/logo_forum.png" alt="Root-Me" style="border-radius: 3px;">
-                      <span>Root-Me</span>
-                  </a>
+                  <div class="social-item">
+                      <a href="https://github.com/louakedwayl" class="social-link" target="_blank">
+                          <img src="https://cdn.simpleicons.org/github/181717" alt="GitHub">
+                          GITHUB
+                      </a>
+                  </div>
+                  <div class="social-item">
+                      <a href="https://www.linkedin.com/in/louakedwayl" class="social-link" target="_blank">
+                          <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn">
+                          LINKEDIN
+                      </a>
+                  </div>
+                  <div class="social-item">
+                      <a href="https://www.root-me.org/louakedwayl" class="social-link" target="_blank">
+                          <img src="https://cdn.simpleicons.org/rootme/000000" alt="Root-Me">
+                          ROOT-ME
+                      </a>
+                  </div>
               </div>
               <div class="copyright">
-                  © 2026 Louaked Wayl. Tous droits réservés.
+                  © 2026 • LOUAKED WAYL • BUILT WITH NODE.JS
               </div>
           </div>
       </div>
@@ -179,19 +113,29 @@ async function sendMotivation() {
   </html>
   `;
 
-  // Envoi de l'email
-  let info = await transporter.sendMail({
-    from: `"${process.env.SENDER_NAME}" <${process.env.EMAIL_USER}>`,
-    to: process.env.RECIPIENT_EMAIL,
-    subject: process.env.EMAIL_SUBJECT || "Candidature Stage Développeur Full-Stack",
-    html: htmlContent,
-  });
+  try {
+    let info = await transporter.sendMail({
+      from: `"${process.env.SENDER_NAME}" <${process.env.EMAIL_USER}>`,
+      to: process.env.RECIPIENT_EMAIL,
+      subject: process.env.EMAIL_SUBJECT || "Candidature Stage Développeur Full-Stack",
+      html: htmlContent,
+      attachments: [
+        {
+          filename: 'CV_Louaked_Wayl.pdf',
+          path: './CV_Louaked_Wayl.pdf' 
+        },
+        {
+          filename: '42paris.jpg',
+          path: './assets/42paris.jpg',
+          cid: 'profile_pic'
+        }
+      ]
+    });
 
-  console.log("✅ Message envoyé avec succès !");
-  console.log("📧 ID du message : %s", info.messageId);
+    console.log("✅ Mail envoyé avec succès !");
+  } catch (error) {
+    console.error("❌ Erreur lors de l'envoi :", error);
+  }
 }
 
-// Exécute l'envoi
-sendMotivation().catch((error) => {
-  console.error("❌ Erreur lors de l'envoi :", error);
-});
+sendMotivation();
